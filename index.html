@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function myFunction(){
+	change_color(document.getElementById("colore").value);
+}
+function myFunction2() {
+	var difficolta="ok";
+	var environment="ok";
+	var qualita="ok";
+	if(document.getElementById('option1').checked) {
+		difficolta="easy";
+	}else if(document.getElementById('option2').checked) {
+		difficolta="medium";
+	}else{
+		difficolta="hard";
+	}
+	if(document.getElementById('option4').checked) {
+		environment="earth";
+	}else if(document.getElementById('option5').checked) {
+		environment="mars";
+	}
+	
+	if(document.getElementById('option6').checked) {
+		qualita="1";
+	}else if(document.getElementById('option7').checked) {
+		qualita="2";
+	}else if(document.getElementById('option8').checked) {
+		qualita="4";
+	}else if(document.getElementById('option9').checked) {
+		qualita="10";
+	}
+	const url="game.html?stackholder=a&color="+document.getElementById("colore").value+"&difficulty="+difficolta+"&environment="+environment+"&qualita="+qualita+"";
+	window.open(url,"_self",false);
+}
+</script>
+<title>Crazy Air Flight</title>
+<style type="text/css">
+* {margin: 0; padding: 0;}
+#container {height: 100%; width:100%; font-size: 0;}
+#left, #middle, #right {display: inline-block; *display: inline; zoom: 1; vertical-align: top; font-size: 12px;}
+#left {width: 25%; background: white;}
+#middle {width: 50%; background: white;}
+#right {width: 25%; background: white;}
+</style>
+	<script type="text/javascript" src="js/three.js"></script>
+	<script type="text/javascript" src="js/models.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+<div id="container">
+    <div id="left">
+	<h4  align="center">Game difficulty</h4>
+	<div align="center" id="difficolta" data-toggle="buttons">
+		<input type="radio" name="dif" id="option1" autocomplete="off" > Easy
+		<input type="radio" name="dif" id="option2" autocomplete="off" checked> Medium
+		<input type="radio" name="dif" id="option3" autocomplete="off"> Hard
+	</div>
+	</div>
+    <div align="center" id="middle">
+	 <div >
+		Airplane color: <input id="colore" type="color" name="favcolor" value="#ffffff" onchange="myFunction()">
+	 </div>
+	   <div align="center" id="webGL-container" background = "green" style="width: 600px; height: 500px; margin: 0 auto; overflow: hidden;">
+				   <script type="text/javascript" src="js/aereo.js" ></script>
+	   </div>
+    <div align="center">
+		<a align="center" href="#" onclick="myFunction2();" class="btn btn-default">Start Game
+		</a>
+    </div>
+	</div>
+    <div id="right">
+	<h4 align="center">Game environment</h4>
+	<div align="center" id="environment" data-toggle="buttons">
+		<input type="radio" name="env" id="option4" autocomplete="off" checked> Earth
+		<input type="radio" name="env" id="option5" autocomplete="off"> Mars
+	</div>
+	<h4 align="center">Texture Quality</h4>
+	<div align="center" id="environment" data-toggle="buttons">
+		<input type="radio" name="qual" id="option6" autocomplete="off" > 1K
+		<input type="radio" name="qual" id="option7" autocomplete="off"> 2K
+		<input type="radio" name="qual" id="option8" autocomplete="off"checked> 4K
+		<input type="radio" name="qual" id="option9" autocomplete="off"> 10K
+	</div>
+	</div>
+	<div style="visibility:hidden;">
+		<script>
+				var url = new URLSearchParams(document.location.href);
+				var colore_u = url.get("color");
+				var difficulty_u = url.get("difficulty");
+				var environment_u = url.get("environment");
+				var qualita_u = url.get("qualita");
+				if(colore_u != null){
+					document.getElementById("colore").value=colore_u;
+				}
+				if(difficulty_u != null){
+					if(difficulty_u == "easy"){
+						(document.getElementById("option1")).checked=true;
+					}
+					else if(difficulty_u == "medium"){
+						(document.getElementById("option2")).checked=true;
+					}
+					else{
+						(document.getElementById("option3")).checked=true;
+					}
+				}
+				if(environment_u != null){
+					if(environment_u == "earth"){
+						document.getElementById("option4").checked=true;
+					}
+					else if(environment_u == "mars"){
+						document.getElementById("option5").checked=true;
+					}
+					else{
+						document.getElementById("option6").checked=true;
+					}
+				}
+				if(qualita_u!=null){
+					if(qualita_u == "1"){
+						document.getElementById("option6").checked=true;
+					}
+					else if(qualita_u == "2"){
+						document.getElementById("option7").checked=true;
+					}
+					else if(qualita_u == "4"){
+						document.getElementById("option8").checked=true;
+					}
+					else if(qualita_u == "10"){
+						document.getElementById("option9").checked=true;
+					}
+				}
+				if(colore_u != null){
+					myFunction();
+				}
+
+		</script>
+	</div>
+</div>
+</body>
+</html>

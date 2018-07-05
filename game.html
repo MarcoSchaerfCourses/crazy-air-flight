@@ -1,0 +1,73 @@
+	<html>
+	<head>
+	<title>Crazy Air Flight</title>
+		<script type="text/javascript" src="js/models.js"></script>
+		<script type="text/javascript" src="js/three.js"></script>
+		<script type="text/javascript" src="js/TweenMax.min.js"></script>
+		<script type="text/javascript" src="js/OBJLoader.js"></script>
+		<script>
+			function myFunction() {
+				restart();
+			}
+			function myFunction2() {
+				window.open("index.html?stackholder=a&color="+document.getElementById("colore").value+"&difficulty="+document.getElementById("difficolta").value+"&environment="+document.getElementById("environment").value+"&qualita="+document.getElementById("qualita").value,"_self",false);
+			}
+		</script>
+		<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	</head>
+	<body>
+		<div class="game-holder" id="gameHolder">
+			<div class="header">
+				<div class="score" id="score">
+					<div class="score__content" id="level">
+						<div class="score__label">level</div>
+						<div class="score__value score__value--level" id="levelValue">1</div>
+						<svg class="level-circle" id="levelCircle" viewbox="0 0 200 200">
+							<circle id="levelCircleBgr" r="80" cx="100" cy="100" fill="none" stroke="#d1b790" stroke-width="24px" />
+							<circle id="levelCircleStroke" r="80" cx="100" cy="100" fill="none" #f25346 stroke="#68c3c0" stroke-width="14px" stroke-dasharray="502" />
+						</svg>
+					</div>
+					<div class="score__content" id="dist">
+						<div class="score__label">distance</div>
+						<div class="score__value score__value--dist" id="distValue">000</div>
+					</div>
+					<div class="score__content" id="energy">
+						<div class="score__label">energy</div>
+						<div class="score__value score__value--energy" id="energyValue">
+							<progress style="width:100%" id="health" value="99" max="99"></progress>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="instruction-holder" id="rules">
+				<h4 class="text-left text-title">How to Play</h4>
+				<p class="text-left text-body font-weight-bold">#1 A - move left<br />
+				#2 D - move right<br />
+				#3 W - move up<br />
+				#4 S - move down<br />
+				#5 Avoid obstacles !!!
+				</p>
+		</div>
+		<div class="message message--replay" id="replayMessage">
+			<Button onclick="myFunction();">Restart</Button>
+			<Button onclick="myFunction2();">Option Panel</Button>
+		</div>
+		<div id="scena" style="visibility:hidden">
+			<script type="text/javascript" src="js/game.js"></script>
+		</div>
+		<div id="progress" class="w3-border" >
+			<progress id="barriera" style="width:100%" value="0" max="100"></progress>
+		</div> 
+		<input id="colore" style="visibility:hidden" value="#ffffff"/>
+		<input id="environment" style="visibility:hidden" value="earth"/>
+		<input id="difficolta" style="visibility:hidden" value="medium"/>
+		<input id="qualita" style="visibility:hidden" value="4"/>
+	</body>
+</html>
+				
