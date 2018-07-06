@@ -1,2 +1,2 @@
 "Crazy air flight" is a simple WASD game in which the player have to move an airplane
-in order to avoid the impact with "strange" obstacles. Afther selecting game difficulty, airplane color, environment and texture quality the user can start the game chicking the "Start Game" button. At this point the user can start to play moving the airplane with the "W" (up),"A" (left),"S" (down) and "D" (right) keyboard keys.
+in order to avoid the impact with "strange" obstacles. Afther selecting game difficulty, airplane color, environment and texture quality the user can start the game chicking the "Start Game" button. At this point the user can play the game moving the airplane with the "W" (up),"A" (left),"S" (down) and "D" (right) keyboard keys.
