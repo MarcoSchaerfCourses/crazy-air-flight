@@ -143,7 +143,7 @@ function init(event){
 	pianeta.mesh.position.y = -600;
 	scene.add(pianeta.mesh);
 	//Cielo
-		cielo = new Cielo(game.altezza_cielo);
+	cielo = new Cielo(game.altezza_cielo);
 	cielo.mesh.position.y = -600;
 	if(game.environment==="earth"){
 		scene.add(cielo.mesh);
@@ -187,6 +187,7 @@ function creaRacimoli(){
 
 
 function loop(){
+  if(loaded){
   ambientLight.intensity += (.5 - ambientLight.intensity)*deltaTime*0.005; //normaliza la luce dopo un impatto
   pianeta.ruota();
   cielo.ruota();
@@ -214,6 +215,7 @@ function loop(){
 			}
   }	
   renderer.render(scene, camera);
+  }
   requestAnimationFrame(loop);
 }
 

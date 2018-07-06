@@ -22,9 +22,9 @@ var Pianeta = function(map_path,bump_path,specular_path,light_path,normal_path){
 		manager.onLoad = function () {
 			document.getElementById("progress").style.visibility="hidden";
 			document.getElementById("scena").style.visibility="visible";
-			loaded=true;
 			game.distanza=0;
 			deltaTime=0;
+			loaded=true;
 		};
 		manager.onError = function () {
 			console.log('there has been an error');
